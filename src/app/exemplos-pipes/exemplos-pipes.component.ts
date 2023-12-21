@@ -13,7 +13,29 @@ export class ExemplosPipesComponent implements OnInit {
     numeroPaginas: 314,
     preco: 44.99,
     dataLancamento: new Date(2016, 5, 23),
-    url:'https://www.amazon.com/Learning-JavaScript-Data-Structures-Algorithms-ebook/dp/B00OYTCT02/ref=sr_1_4?crid=32CF35N0F4OOF&keywords=learning+javascript+data+structures+and+algorithms&qid=1702663740&sprefix=learning+javascript+data%2Caps%2C611&sr=8-4'
+    url:'http://a.co/glqjpRP'
+  }
+
+  livros: string[] = ['Java', 'Angular 2']
+
+  filtro: string = '';
+
+  addCurso(valor: any){
+    this.livros.push(valor);
+    console.log(this.livros);
+  }
+
+  obterCursos(){
+    if(this.livros.length === 0 || this.filtro === null || this.filtro.trim() === ''){
+      return this.livros;
+    }
+
+    return this.livros.filter((v) => {
+      if(v.toLocaleLowerCase().indexOf(this.filtro.toLocaleLowerCase()) >= 0){
+        return true;
+      }
+      return false;
+    } )
   }
 
   constructor(){}
