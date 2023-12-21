@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-exemplos-pipes',
@@ -37,6 +38,14 @@ export class ExemplosPipesComponent implements OnInit {
       return false;
     } )
   }
+
+  // Esse código atribui o valor assíncrono ao ValorAsync em 2 segundos
+
+  valorAsync = new Promise((resolve, reject) =>{
+    setTimeout(() => resolve('Valor Assíncrono'), 2000)
+  } );
+
+
 
   constructor(){}
 
